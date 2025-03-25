@@ -1,0 +1,17 @@
+{
+  "noticias": [],
+  "autores": [
+    {
+      "id": 1,
+      "nome": "Wildson"
+    },
+    {
+      "id": 2,
+      "nome": "Wildson"
+    },
+    {
+      "id": 3,
+      "nome": "Wildson"
+    }
+  ]
+}
