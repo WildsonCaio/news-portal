@@ -20,9 +20,9 @@ Este é um portal de notícias fictício, criado para exemplificar a integraçã
 ## Frontend
 
 - **src/**: Contém o código-fonte do frontend.
-  - **components/**: Contém os componentes React.
-  - **services/**: Contém os serviços para interagir com a API.
-  - **public/**: Contém os arquivos públicos.
+- **components/**: Contém os componentes React.
+- **services/**: Contém os serviços para interagir com a API.
+- **public/**: Contém os arquivos públicos.
 
 ## Endpoints da API
 
