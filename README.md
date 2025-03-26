@@ -12,4 +12,4 @@ Este é um portal de notícias fictício, criado para exemplificar a integraçã
 ### Backend
 
 1. Navegue até o diretório `backend`
-   `cd backend`
+   ``` python manage.py runserver ```
