@@ -88,3 +88,52 @@ A documentação no swagger está disponível em `http://localhost:3333/api-docs
    npm start
    ```
 O frontend estará disponível em `http://localhost:3000`.
+
+# Backend Bonus
+Para rodar o backend em python é necessários executar os seguintes passos.
+
+1. Ao acessar a pasta backend-python
+
+```
+cd backend-python
+```
+2. criar a venv
+
+```
+python -m venv venv
+```
+
+3. Ativar o ambiente virtual
+
+```
+.\venv\Scripts\activate  Windows
+
+source venv\bin\activate Linux
+
+```
+
+4. instalar as dependências
+
+```
+pip install -r requirements.txt
+```
+
+5. Criar as tabelas no banco de dados
+
+```
+python manage.py migrate
+```
+
+
+6. Criar rodar servidor da aplicação
+
+```
+python manage.py runserve
+```
+
+
+7. Acessar a documentação
+
+```
+http://127.0.0.1:8000/api/v1/docs/
+```
