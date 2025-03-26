@@ -1,8 +1,24 @@
 const { readData, writeData } = require("../models/noticiaModel");
 
 const getNoticias = (req, res) => {
+  const { titulo, autorId, texto } = req.query;
   const data = readData();
-  res.json(data.noticias);
+  let noticias = data.noticias;
+
+  // Aplica os filtros, se existirem
+  if (titulo) {
+    noticias = noticias.filter((n) => n.titulo.toLowerCase().includes(titulo.toLowerCase()));
+  }
+
+  if (autorId) {
+    noticias = noticias.filter((n) => n.autorId == autorId);
+  }
+
+  if (texto) {
+    noticias = noticias.filter((n) => n.texto.toLowerCase().includes(texto.toLowerCase()));
+  }
+
+  res.json(noticias);
 };
 
 const addNoticia = (req, res) => {
@@ -12,7 +28,13 @@ const addNoticia = (req, res) => {
   }
 
   const data = readData();
-  const novaNoticia = { id: data.noticias.length + 1, titulo, texto, autorId };
+  const novaNoticia = {
+    id: data.noticias.length + 1,
+    titulo,
+    texto,
+    autorId,
+  };
+
   data.noticias.push(novaNoticia);
   writeData(data);
 
@@ -22,11 +44,12 @@ const addNoticia = (req, res) => {
 const updateNoticia = (req, res) => {
   const { id } = req.params;
   const { titulo, texto, autorId } = req.body;
-
   const data = readData();
-  const index = data.noticias.findIndex((n) => n.id == id);
 
-  if (index === -1) return res.status(404).json({ message: "Notícia não encontrada" });
+  const index = data.noticias.findIndex((n) => n.id == id);
+  if (index === -1) {
+    return res.status(404).json({ message: "Notícia não encontrada" });
+  }
 
   data.noticias[index] = { id: Number(id), titulo, texto, autorId };
   writeData(data);
@@ -36,9 +59,10 @@ const updateNoticia = (req, res) => {
 
 const deleteNoticia = (req, res) => {
   const { id } = req.params;
-  let data = readData();
+  const data = readData();
   data.noticias = data.noticias.filter((n) => n.id != id);
   writeData(data);
+
   res.status(204).send();
 };
 

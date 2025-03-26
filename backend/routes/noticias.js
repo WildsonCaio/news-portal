@@ -6,10 +6,26 @@ const { getNoticias, addNoticia, updateNoticia, deleteNoticia } = require("../co
  * @swagger
  * /noticias:
  *   get:
- *     summary: Retorna todas as notícias
+ *     summary: Retorna todas as notícias com filtros opcionais
+ *     parameters:
+ *       - in: query
+ *         name: titulo
+ *         schema:
+ *           type: string
+ *         description: Filtra as notícias pelo título
+ *       - in: query
+ *         name: autorId
+ *         schema:
+ *           type: integer
+ *         description: Filtra as notícias pelo ID do autor
+ *       - in: query
+ *         name: texto
+ *         schema:
+ *           type: string
+ *         description: Filtra as notícias por um trecho do texto
  *     responses:
  *       200:
- *         description: Lista de notícias retornada com sucesso
+ *         description: Lista de notícias filtradas retornada com sucesso
  */
 router.get("/", getNoticias);
 

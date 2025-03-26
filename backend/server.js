@@ -10,7 +10,7 @@ const autoresRoutes = require("./routes/autores");
 const app = express();
 const PORT = 5000;
 
-// Configuração do CORS para permitir chamadas do Swagger
+// Configuração do CORS
 app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE" }));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -32,11 +32,11 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "http://localhost:5000", // Corrigindo o servidor do Swagger
+        url: "http://localhost:5000",
       },
     ],
   },
-  apis: ["./routes/*.js"], // Aponta para as rotas
+  apis: ["./routes/*.js"],
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
