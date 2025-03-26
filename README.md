@@ -39,7 +39,7 @@ Este é um portal de notícias fictício, criado para exemplificar a integraçã
 - **POST /autores**: Adiciona um novo autor.
 
 
-## Rodando o Projeto com docker
+# Rodando o Projeto com docker
 
 1. Certifique-se de que você tem o Docker e o Docker Compose instalados em sua máquina.
 
@@ -55,7 +55,7 @@ docker-compose up --build
 Isso irá construir as imagens Docker para o backend e o frontend, e iniciar os contêineres. O backend estará disponível na porta 3333 e o frontend na porta 3000.
 
 
-## Rodando o Projeto Localmente
+# Rodando o Projeto Localmente
 
 ### Backend
 
@@ -72,7 +72,7 @@ Isso irá construir as imagens Docker para o backend e o frontend, e iniciar os 
    node server.js
    ```
 O backend estará disponível em `http://localhost:3333`.
-
+A documentação no swagger está disponível em `http://localhost:3333/api-docs/`
 ### Frontend
 
 1. Navegue até o diretório `frontend`
