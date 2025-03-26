@@ -1,11 +1,15 @@
 const { readData, writeData } = require("../models/noticiaModel");
 
 const getNoticias = (req, res) => {
-  const { titulo, autorId, texto } = req.query;
+  const { id, titulo, autorId, texto } = req.query;
   const data = readData();
   let noticias = data.noticias;
 
   // Aplica os filtros, se existirem
+  if (id) {
+    noticias = noticias.filter((n) => n.id == id);
+  }
+
   if (titulo) {
     noticias = noticias.filter((n) => n.titulo.toLowerCase().includes(titulo.toLowerCase()));
   }
@@ -24,6 +28,8 @@ const getNoticias = (req, res) => {
 const addNoticia = (req, res) => {
   const { titulo, texto, autorId } = req.body;
   if (!titulo || !texto || !autorId) {
+    console.log(req.body);
+    
     return res.status(400).json({ message: "Todos os campos são obrigatórios" });
   }
 

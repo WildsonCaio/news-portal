@@ -1,17 +1,23 @@
 {
-  "noticias": [],
-  "autores": [
+  "noticias": [
     {
       "id": 1,
-      "nome": "Wildson"
+      "titulo": "sdfdsf",
+      "texto": "sdfsdf",
+      "autorId": "sdfsdfsdfsd"
     },
     {
       "id": 2,
-      "nome": "Wildson"
+      "titulo": "caio",
+      "texto": "caio",
+      "autorId": "caio"
     },
     {
       "id": 3,
-      "nome": "Wildson"
+      "titulo": "dasdas",
+      "texto": "dasdasd",
+      "autorId": "asdasdasd"
     }
-  ]
+  ],
+  "autores": []
 }

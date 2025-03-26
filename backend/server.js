@@ -8,7 +8,7 @@ const noticiasRoutes = require("./routes/noticias");
 const autoresRoutes = require("./routes/autores");
 
 const app = express();
-const PORT = 5000;
+const PORT = 3333;
 
 // Configuração do CORS
 app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE" }));
@@ -32,7 +32,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "http://localhost:5000",
+        url: "http://localhost:3333",
       },
     ],
   },

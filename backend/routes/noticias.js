@@ -9,6 +9,11 @@ const { getNoticias, addNoticia, updateNoticia, deleteNoticia } = require("../co
  *     summary: Retorna todas as notícias com filtros opcionais
  *     parameters:
  *       - in: query
+ *         name: id
+ *         schema:
+ *           type: string
+ *         description: Filtra as notícias pelo id
+ *       - in: query
  *         name: titulo
  *         schema:
  *           type: string
