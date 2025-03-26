@@ -5,7 +5,7 @@ const getNoticias = (req, res) => {
   const data = readData();
   let noticias = data.noticias;
 
-  // Aplica os filtros, se existirem
+  
   if (id) {
     noticias = noticias.filter((n) => n.id == id);
   }

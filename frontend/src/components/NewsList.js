@@ -6,7 +6,6 @@ const NewsList = () => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    // Buscar as notícias do backend
     fetch('http://localhost:3333/noticias')
       .then((response) => response.json())
       .then((data) => setNews(data));
@@ -16,7 +15,6 @@ const NewsList = () => {
     fetch(`http://localhost:3333/noticias/${id}`, {
       method: 'DELETE',
     }).then(() => {
-      // Remover a notícia da lista
       setNews((prevNews) => prevNews.filter((item) => item.id !== id));
     });
   };

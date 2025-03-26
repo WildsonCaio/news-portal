@@ -1,23 +1,4 @@
 {
-  "noticias": [
-    {
-      "id": 1,
-      "titulo": "sdfdsf",
-      "texto": "sdfsdf",
-      "autorId": "sdfsdfsdfsd"
-    },
-    {
-      "id": 2,
-      "titulo": "caio",
-      "texto": "caio",
-      "autorId": "caio"
-    },
-    {
-      "id": 3,
-      "titulo": "dasdas",
-      "texto": "dasdasd",
-      "autorId": "asdasdasd"
-    }
-  ],
+  "noticias": [],
   "autores": []
 }

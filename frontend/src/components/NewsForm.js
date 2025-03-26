@@ -6,28 +6,25 @@ const NewsForm = () => {
   const [texto, setContent] = useState('');
   const [autorId, setAuthor] = useState('');
   const navigate = useNavigate();
-  const { id } = useParams(); // Para editar a notícia, obtendo o id da URL
+  const { id } = useParams(); 
 
   useEffect(() => {
     if (id) {
-      // Caso seja edição, buscar dados da notícia pelo id
-      fetch(`http://localhost:3333/noticias/?id=${id}`) // Aqui, se a API retorna um array, altere para um único objeto
+      fetch(`http://localhost:3333/noticias/?id=${id}`) 
         .then((response) => response.json())
         .then((data) => {
           if (data && data.length > 0) {
-            // Se a API retornar um array de notícias
             const noticia = data[0];
             setTitle(noticia.titulo || '');
             setContent(noticia.texto || '');
             setAuthor(noticia.autorId || '');
           } else if (data) {
-            // Se a API retornar um único objeto de notícia
             setTitle(data.titulo || '');
             setContent(data.texto || '');
             setAuthor(data.autorId || '');
           }
         })
-        .catch((error) => console.error('Erro ao buscar a notícia:', error)); // Para capturar erros de rede
+        .catch((error) => console.error('Erro ao buscar a notícia:', error)); 
     }
   }, [id]);
 
@@ -37,23 +34,21 @@ const NewsForm = () => {
     const newsData = { titulo, texto, autorId };
 
     if (id) {
-      // Caso seja edição, enviar uma PUT
       fetch(`http://localhost:3333/noticias/${id}`, {
         method: 'PUT',
         body: JSON.stringify(newsData),
         headers: {
           'Content-Type': 'application/json',
         },
-      }).then(() => navigate('/news')); // Redireciona para a lista de notícias
+      }).then(() => navigate('/news')); 
     } else {
-      // Caso seja criação, enviar uma POST
       fetch('http://localhost:3333/noticias', {
         method: 'POST',
         body: JSON.stringify(newsData),
         headers: {
           'Content-Type': 'application/json',
         },
-      }).then(() => navigate('/news')); // Redireciona para a lista de notícias
+      }).then(() => navigate('/news'));
     }
   };
 
